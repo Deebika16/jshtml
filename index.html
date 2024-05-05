@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeFact</title>
+    <style>
+        .main{
+            margin: 10%;
+            width: 1600px;
+            height: 600px;
+            background-color: rgb(232, 238, 185);
+            border-radius: 50px;
+            position: relative;
+        }
+        .btn{
+            position: relative;
+            margin-top: 150px;
+            margin-left: 150px;
+            border-radius: 10px;
+            width: 300px;
+            height: 100px;
+            background-color: rgb(238, 202, 180);
+            font-size: 30px;
+        }
+        
+        #txt{
+            position: absolute;
+            margin: 50px;
+            font-size: 40px;
+            font-family: cursive;
+        }
+        #n{
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            border-radius: 20px;
+            margin-top: 50px;
+            margin-left: 400px;
+            font-size:50px;
+            text-align: center;
+            font-family: cursive;
+        }
+        .output{
+            position: absolute;
+            width: 1300px;
+            height: 200px;
+            margin-top: 50px;
+            margin-left: 140px;
+            background-color: aliceblue;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <label id="txt">Enter a Number</label>
+        <input id="n" type="text"/>
+        <div >
+            <button class="btn" onclick="Prime()">Check Prime</button>
+            <button class="btn" onclick="Fact()">Generate Factorial</button>
+            <button class="btn" onclick="OddEven()">Check Odd or Even</button>
+        </div>
+        <div class="output">
+            <p style=" background-color: rgb(177, 240, 241); width: fit-content; border-radius: 20px; position: absolute; font-size: 50px; font-family: cursive; margin-left: 50px;">Answer</p>
+            <p style=" margin-left: 500px; font-size: 50px; font-family: cursive; " id="ans"></p>
+        </div>
+        <script src="index.js"></script>
+    </div> 
+    <script>
+        function Prime(){
+            const num = document.getElementById('n').value;
+            let flag = true;
+            for(let i=2;i<=num/2;i++){
+                if (num%2===0){
+                    flag=false;
+                    break;
+                }
+            }
+            if(flag)
+            {
+                document.getElementById('ans').innerHTML="It is a Prime Number";
+            }
+            else{
+                document.getElementById('ans').innerHTML="It is a Non-Prime Number";
+            }
+        }
+        
+        function Fact(){
+            const num = document.getElementById('n').value;
+            let s=1;
+            for(let i=2;i<=num;i++){
+                s=s*i
+            }
+            document.getElementById('ans').innerHTML="Factorial = "+s;
+        }
+        
+        function OddEven()
+        {
+            const num=document.getElementById('n').value;
+            if(num%2==0)
+            {
+                document.getElementById('ans').innerHTML="It is a Even Number";
+            }
+            else{
+                document.getElementById('ans').innerHTML="It is a Odd Number";
+            }
+        }
+        
+    </script>
+</body>
+</html>
+
